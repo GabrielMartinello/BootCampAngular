@@ -1,10 +1,12 @@
-import {AnuncioComponent} from "./anuncios/anuncio/anuncio.component";
-import {RouterModule, Routes} from "@angular/router";
-import {AnuncioListComponent} from "./anuncios/anuncio-list/anuncio-list.component";
-import {AnuncioListResolver} from "./anuncios/anuncio-list/anuncio-list.resolver";
-import {NgModule} from "@angular/core";
+import {AnuncioComponent} from './anuncios/anuncio/anuncio.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AnuncioListComponent} from './anuncios/anuncio-list/anuncio-list.component';
+import {AnuncioListResolver} from './anuncios/anuncio-list/anuncio-list.resolver';
+import {NgModule} from '@angular/core';
+import {AnuncioFormComponent} from './anuncios/anuncio-form/anuncio-form.componet';
 const routes: Routes = [
-  {path: 'a/add', component: AnuncioComponent},
+  //cominucação são feitas dentro de modulos
+  {path: 'a/add', component: AnuncioFormComponent},
   {path: 'a/add/:id', component: AnuncioComponent},
   {path: 'u/add', component: AnuncioComponent},
   {path: 'u/add/:id', component: AnuncioComponent},

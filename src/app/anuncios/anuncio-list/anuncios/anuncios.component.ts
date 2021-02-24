@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Anuncio} from '../../anuncio/anuncio';
 
 @Component({
@@ -7,10 +7,25 @@ import {Anuncio} from '../../anuncio/anuncio';
   styleUrls: ['./anuncios.component.scss']
 })
 
-export class AnunciosComponent implements OnInit{
+export class AnunciosComponent implements OnInit, OnChanges{
   @Input() anuncios: Anuncio[];
+  rows: any[];
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.anuncios) {
+      this.rows = this.groupColumns(this.anuncios);
+    }
+  }
+
+  groupColumns(anuncios: Anuncio[]): any[] {
+    const newRows = [];
+    for (let i = 0; i < anuncios.length; i += 4) {
+      newRows.push(anuncios.slice(i, i + 4));
+    }
+    return newRows;
   }
 
 }
