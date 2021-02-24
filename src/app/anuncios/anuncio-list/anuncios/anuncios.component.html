@@ -1,1 +1,11 @@
-<app-anuncio [anuncio]="anuncios[0]"></app-anuncio>
+<p *ngIf="!anuncios.length">Não tem anuncio</p>
+  <ol>
+    <li *ngFor="let anuncio of anuncios">
+      <app-anuncio [anuncio]="anuncio"></app-anuncio>
+    </li>
+  </ol>
+
+
+
+
+
