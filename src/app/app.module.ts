@@ -8,10 +8,12 @@ import {AnunciosModule} from './anuncios/anuncio-list/anuncios/anuncios.module';
 import {AnuncioListModule} from './anuncios/anuncio-list/anuncio-list.module';
 import {AnuncioFormModule} from './anuncios/anuncio-form/anuncio-form.module';
 import {VmessageModule} from './vmessage/vmessage.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

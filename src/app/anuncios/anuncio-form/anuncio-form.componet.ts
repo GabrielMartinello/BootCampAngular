@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AnuncioService} from '../anuncio/service/anuncio.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Anuncio} from '../anuncio/anuncio';
 
 @Component({
@@ -10,23 +10,33 @@ import {Anuncio} from '../anuncio/anuncio';
   styleUrls: ['./anuncio-form.component.scss']
 })
 
-export class AnuncioFormComponent implements OnInit{
+export class AnuncioFormComponent implements OnInit {
   anuncioForm: FormGroup;
   anuncio: Anuncio = new Anuncio();
+
   constructor(private formBuilder: FormBuilder,
               private anuncioService: AnuncioService,
-              private router: Router) {}
+              private router: Router,
+              private activedRouter: ActivatedRoute ) {
 
-  ngOnInit(): void {
-    // validações, quando for mais que uma precisa de um vetor, se não, não precisaremos
-    //de um vetor :)
-    this.anuncioForm = this.formBuilder.group({
-      url: ['', Validators.minLength(10)],
-      titulo: ['', [Validators.minLength(3), Validators.maxLength(50)]],
-      mensagem: ['', [Validators.minLength(3), Validators.maxLength(300)]]
-    });
   }
 
+  ngOnInit(): void {
+    this.anuncioForm = this.formBuilder.group({
+      url: ['', [Validators.minLength(10), Validators.required]],
+      titulo: ['', [Validators.minLength(3), Validators.maxLength(50), Validators.required]],
+      mensagem: ['', [Validators.minLength(3), Validators.maxLength(300), Validators.required]]
+    });
+    const id = this.activedRouter.snapshot.params.id;
+    if (id){
+      this.anuncioService.pegaId(id).subscribe(anuncio => {
+        this.anuncio = anuncio;
+        this.anuncioForm.controls['url'].setValue(anuncio.urlImagem);
+        this.anuncioForm.controls['titulo'].setValue(anuncio.titulo);
+        this.anuncioForm.controls['mensagem'].setValue(anuncio.mensagem);
+      });
+    }
+  }
   salvarAnuncio(): void{
     this.anuncio.titulo = this.anuncioForm.get('titulo')?.value;
     this.anuncio.mensagem = this.anuncioForm.get('mensagem')?.value;
@@ -34,5 +44,8 @@ export class AnuncioFormComponent implements OnInit{
     this.anuncioService.cadastrar(this.anuncio).subscribe(() => {
       this.router.navigate(['list/a']);
     });
+  }
+  deletarAnuncio(): void{
+    this.anuncioService.excluir(this.anuncio.id).subscribe();
   }
 }

@@ -3,15 +3,13 @@ import {CommonModule} from '@angular/common';
 
 import {AnuncioListComponent} from './anuncio-list.component';
 import {AnunciosModule} from './anuncios/anuncios.module';
-import {RouterModule} from "@angular/router";
+import {VmessageModule} from "../../vmessage/vmessage.module";
 
 @NgModule({
-  declarations: [ AnuncioListComponent],
-  imports: [
-    CommonModule,
-    AnunciosModule,
-    RouterModule
-  ]
-})
-export class AnuncioListModule{
-}
+    declarations: [AnuncioListComponent],
+    imports: [CommonModule, AnunciosModule],
+    exports: [VmessageModule]
+  })
+
+  export class AnuncioListModule{
+  }

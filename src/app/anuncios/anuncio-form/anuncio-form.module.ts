@@ -6,12 +6,11 @@ import {VmessageModule} from "../../vmessage/vmessage.module";
 
 @NgModule({
   declarations: [AnuncioFormComponent],
-  imports: [
-    CommonModule,
+  imports: [CommonModule,
+    // tambem nao entendi
     ReactiveFormsModule,
-    VmessageModule
-  ]
+    VmessageModule],
 })
+export class AnuncioFormModule{
 
-export class AnuncioFormModule {
 }

@@ -1,28 +1,43 @@
-<div style="margin-top: 8px" class="container">
+<div style="margin-top: 10px" class="container" xmlns="http://www.w3.org/1999/html">
   <form [formGroup]="anuncioForm" class="row" (submit)="salvarAnuncio()">
-    <div class="col-6 text-center">
-      <textarea
-        formControlName="url"
-        type="text"
-        class="form-control"
-        placeholder="URL Imagem"></textarea>
-      <app-vmessage *ngIf="anuncioForm.get('url')?.errors?.minlength" [text]="'Url deve conter no minino 10 carateres'" ></app-vmessage>
+
+    <div class="col-6 ">
+      <textarea formControlName="url"
+                class="form-control"
+                placeholder="Url Imagem">
+      </textarea>
+      <img style="margin-top: 8px" src="{{anuncio.urlImagem}}" alt="">
+      <app-vmessage *ngIf="anuncioForm.get('url')?.errors?.minlength"
+                    [text]="'Url deve conter no mínimo 10 caracteres'"></app-vmessage>
     </div>
     <div class="col-6">
-      <textarea formControlName="titulo"
-                type="text"
-                class="form-control"
-                placeholder="Digite o titulo seu pora"></textarea>
-                <app-vmessage *ngIf="anuncioForm.get('titulo')?.errors?.minlength || anuncioForm.get('titulo')?.errors?.maxlength" [text]="'Titulo deve conter entre 15 e 30 caracteres'" ></app-vmessage>
+    <textarea formControlName="titulo"
+              class="form-control"
+              placeholder="Títuo">
+      </textarea>
+      <app-vmessage *ngIf="anuncioForm.get('titulo')?.errors?.minlength || anuncioForm.get('titulo')?.errors?.maxlength"
+                    [text]="'O título deve possuir entre 3 e 50 caracteres'"></app-vmessage>
 
 
       <textarea style="margin-top: 8px" formControlName="mensagem"
-                type="text"
                 class="form-control"
-                placeholder="Diga sua mensagem pora">
+                placeholder="Mensagem">
       </textarea>
+      <app-vmessage
+        *ngIf="anuncioForm.get('mensagem')?.errors?.minlength || anuncioForm.get('mensagem')?.errors?.maxlength"
+        [text]="'A mensagem deve possuir entre 3 e 300 caracteres'"></app-vmessage>
+
     </div>
-    <button style="margin-top: 10px" [disabled]="anuncioForm.invalid" type="submit" class="btn btn-outline-primary btn-block">Salvar</button>
-    <a style="margin-top: 10px" href="a/list" aria-hidden="true" class="btn btn-outline-danger">Cancelar</a>
+
+    <button style="margin-top: 10px" [disabled]="anuncioForm.invalid" type="submit"
+            class="btn btn-outline-primary btn-block ">Salvar
+    </button>
+    <a style="margin-top: 5px" href="a/list" class="btn btn-outline-warning">Cancelar</a>
+    <a href="/"
+       style="margin-top: 5px"
+       class="btn btn-outline-danger"
+       *ngIf="anuncio?.id" (click)="(deletarAnuncio())" type="submit">
+      Deletar
+    </a>
   </form>
 </div>
