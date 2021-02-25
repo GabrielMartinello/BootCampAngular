@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filterOutput.emit();
+
   }
   onKey($event: KeyboardEvent): void {
     this.filter = ($event.target as HTMLInputElement).value;
