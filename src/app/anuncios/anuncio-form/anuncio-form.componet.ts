@@ -13,6 +13,7 @@ import {Anuncio} from '../anuncio/anuncio';
 export class AnuncioFormComponent implements OnInit {
   anuncioForm: FormGroup;
   anuncio: Anuncio = new Anuncio();
+  url: string;
 
   constructor(private formBuilder: FormBuilder,
               private anuncioService: AnuncioService,
@@ -34,6 +35,7 @@ export class AnuncioFormComponent implements OnInit {
         this.anuncioForm.controls['url'].setValue(anuncio.urlImagem);
         this.anuncioForm.controls['titulo'].setValue(anuncio.titulo);
         this.anuncioForm.controls['mensagem'].setValue(anuncio.mensagem);
+        this.url = this.anuncio.urlImagem;
       });
     }
   }

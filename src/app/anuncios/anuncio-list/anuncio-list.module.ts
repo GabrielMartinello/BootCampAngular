@@ -1,15 +1,16 @@
-import {NgModule} from '@angular/core';
+import {EventEmitter, Input, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {AnuncioListComponent} from './anuncio-list.component';
 import {AnunciosModule} from './anuncios/anuncios.module';
-import {VmessageModule} from "../../vmessage/vmessage.module";
+import {VmessageModule} from '../../vmessage/vmessage.module';
+import {filter} from "rxjs/operators";
 
 @NgModule({
     declarations: [AnuncioListComponent],
     imports: [CommonModule, AnunciosModule],
-    exports: [VmessageModule]
-  })
+  exports: [VmessageModule, AnuncioListComponent]
+})
 
   export class AnuncioListModule{
   }

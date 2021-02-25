@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Anuncio} from '../anuncio/anuncio';
 import {ActivatedRoute} from '@angular/router';
 
@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AnuncioListComponent implements OnInit {
   anuncios: Anuncio[];
+  @Input() filter: string;
   constructor( private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {

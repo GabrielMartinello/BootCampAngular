@@ -9,11 +9,13 @@ import {AnuncioListModule} from './anuncios/anuncio-list/anuncio-list.module';
 import {AnuncioFormModule} from './anuncios/anuncio-form/anuncio-form.module';
 import {VmessageModule} from './vmessage/vmessage.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

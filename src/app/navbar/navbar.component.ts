@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+  @Output() filterOutput = new EventEmitter<string>();
+  filter = '';
+  filterSub: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.filterOutput.emit();
   }
-
+  onKey($event: KeyboardEvent): void {
+    this.filter = ($event.target as HTMLInputElement).value;
+    this.filterOutput.emit( this.filter );
+  }
 }
