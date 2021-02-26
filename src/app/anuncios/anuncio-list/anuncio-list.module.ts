@@ -1,16 +1,24 @@
-import {EventEmitter, Input, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {AnuncioListComponent} from './anuncio-list.component';
-import {AnunciosModule} from './anuncios/anuncios.module';
-import {VmessageModule} from '../../vmessage/vmessage.module';
-import {filter} from "rxjs/operators";
-import {FilterByTitlePipe} from "./filter-by-title.pipe";
+import {FilterByTitlePipe} from './filter-by-title.pipe';
+import {RouterModule} from '@angular/router';
+import {AnuncioModule} from '../anuncio/anuncio.module';
+import {AnunciosComponent} from './anuncios/anuncios.component';
 
 @NgModule({
-    declarations: [AnuncioListComponent, FilterByTitlePipe],
-    imports: [CommonModule, AnunciosModule],
-  exports: [VmessageModule, AnuncioListComponent]
+    declarations: [
+      AnuncioListComponent,
+      AnunciosComponent,
+      FilterByTitlePipe
+    ],
+    imports: [
+      CommonModule,
+      RouterModule,
+      AnuncioModule
+    ],
+  exports: [AnuncioListComponent]
 })
 
   export class AnuncioListModule{
