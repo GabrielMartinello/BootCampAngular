@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'a/add', component: AnuncioFormComponent},
   {path: 'a/add/:id', component: AnuncioFormComponent},
   {path: 'u/add', component: UsuarioFormComponent},
-  {path: 'u/add/:id', component: AnuncioComponent},
+  {path: 'u/add/:id', component: UsuarioFormComponent},
   {path: 'u/list', component: AnuncioComponent},
   {path: '**', component: HomeComponent,
     resolve: {anuncios: AnuncioListResolver}}

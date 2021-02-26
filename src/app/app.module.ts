@@ -7,12 +7,16 @@ import {VmessageModule} from './vmessage/vmessage.module';
 import {NavbarModule} from './navbar/navbar.module';
 import {HomeModule} from './home/home.module';
 import {AnunciosModule} from './anuncios/anuncios.module';
-import { UsuarioFormComponent } from 'src/app/usuarios/usuario/usuario-form.component';
+import {UsuarioFormComponent} from 'src/app/usuarios/usuario/usuario-form.component';
+import {UsuarioFormModule} from 'src/app/usuarios/usuario/usuario-form.module';
+import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
+import { UsuariosComponent } from 'src/app/usuarios/usuario-list/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioFormComponent
+    UsuarioListComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -20,9 +24,11 @@ import { UsuarioFormComponent } from 'src/app/usuarios/usuario/usuario-form.comp
     AnunciosModule,
     VmessageModule,
     NavbarModule,
-    HomeModule
+    HomeModule,
+    UsuarioFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

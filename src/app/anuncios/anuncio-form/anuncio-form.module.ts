@@ -11,6 +11,6 @@ import {VmessageModule} from "../../vmessage/vmessage.module";
     ReactiveFormsModule,
     VmessageModule],
 })
-export class AnuncioFormModule{
+export class AnuncioFormModule {
 
 }

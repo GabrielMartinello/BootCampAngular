@@ -19,11 +19,8 @@ export class UsuarioService {
 
   //cadastrando um usuario
   cadastrar(usuario: Usuario): Observable<void> {
-    //verifica se o usuario tem id, se tem ele vai pegar o id do usuario
-    if (usuario.id) {
-      return this.http.put<void>(`${environment.api}/usuario/${usuario.id}`, usuario);
-    }
     //se nao ele vai criar um novo usuario
+    console.log(usuario);
     return this.http.post<void>(environment.api + '/usuario', usuario);
   }
 
