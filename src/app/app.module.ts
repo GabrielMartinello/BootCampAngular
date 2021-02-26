@@ -7,11 +7,12 @@ import {VmessageModule} from './vmessage/vmessage.module';
 import {NavbarModule} from './navbar/navbar.module';
 import {HomeModule} from './home/home.module';
 import {AnunciosModule} from './anuncios/anuncios.module';
-import {AnuncioListModule} from "./anuncios/anuncio-list/anuncio-list.module";
+import { UsuarioFormComponent } from 'src/app/usuarios/usuario/usuario-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,

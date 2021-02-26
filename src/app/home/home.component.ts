@@ -15,8 +15,6 @@ export class HomeComponent implements OnInit {
 
   receberFilter(event: string): void {
     this.filter = event;
-    console.log(this.filter);
-
   }
 
 }

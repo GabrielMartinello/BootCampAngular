@@ -1,8 +1,8 @@
-import {NgModule} from "@angular/core";
-import {AnuncioModule} from "./anuncio/anuncio.module";
-import {AnuncioFormModule} from "./anuncio-form/anuncio-form.module";
-import {CommonModule} from "@angular/common";
-import {AnuncioListModule} from "./anuncio-list/anuncio-list.module";
+import {NgModule} from '@angular/core';
+import {AnuncioModule} from './anuncio/anuncio.module';
+import {AnuncioFormModule} from './anuncio-form/anuncio-form.module';
+import {CommonModule} from '@angular/common';
+import {AnuncioListModule} from 'src/app/anuncios/anuncio-list/anuncio-list.module';
 
 @NgModule({
   imports: [
@@ -12,7 +12,6 @@ import {AnuncioListModule} from "./anuncio-list/anuncio-list.module";
     AnuncioListModule,
   ]
 })
-
 
 export class AnunciosModule {
 
