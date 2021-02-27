@@ -7,10 +7,9 @@ import {VmessageModule} from './vmessage/vmessage.module';
 import {NavbarModule} from './navbar/navbar.module';
 import {HomeModule} from './home/home.module';
 import {AnunciosModule} from './anuncios/anuncios.module';
-import {UsuarioFormComponent} from 'src/app/usuarios/usuario/usuario-form.component';
 import {UsuarioFormModule} from 'src/app/usuarios/usuario/usuario-form.module';
-import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
-import { UsuariosComponent } from 'src/app/usuarios/usuario-list/usuarios/usuarios.component';
+import {UsuarioListComponent} from './usuarios/usuario-list/usuario-list.component';
+import {UsuariosComponent} from 'src/app/usuarios/usuario-list/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [

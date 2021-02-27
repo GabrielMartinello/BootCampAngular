@@ -43,7 +43,7 @@ export class UsuarioFormComponent implements OnInit {
     this.usuario.email = this.usuarioForm.get('email')?.value;
     this.usuario.senha = this.usuarioForm.get('senha')?.value;
     this.usuarioService.cadastrar(this.usuario).subscribe(() => {
-      this.router.navigate(['u/list']);
+      this.router.navigate(['list/a']);
     });
   }
 

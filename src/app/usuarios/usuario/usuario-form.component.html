@@ -1,52 +1,58 @@
 <form [formGroup]="usuarioForm" class="row" (submit)="salvarUsuario()">
-  <div class="row">
-    <div class="col-4">
-      <div class="container">
-        <div class="card">
-          <div class="card-title mt-4 container">
-            <h4>Cadastro de usuarios</h4>
-          </div>
-          <div class="col-9 formulario container">
-            <div class="row">
-              <label>Nome</label>
-              <input type="text" class="form-control" formControlName="nome" placeholder="nome">
-              <app-vmessage *ngIf="usuarioForm.get('nome')?.errors?.minlength ||
+    <div class="row">
+      <div class="col-4">
+        <div class="container">
+          <div class="card">
+            <div class="card-title mt-4 container">
+              <h4>Cadastro de usuarios</h4>
+            </div>
+            <div class="col-9 formulario container">
+              <div class="row">
+                <label>Nome</label>
+                <input type="text" class="form-control" formControlName="nome" placeholder="nome">
+                <app-vmessage *ngIf="usuarioForm.get('nome')?.errors?.minlength ||
                usuarioForm.get('nome')?.errors?.maxlength ||
                 usuarioForm.get('nome')?.errors?.required"
-                            [text]="'O nome deve possuir mais que 3 caracteres'"></app-vmessage>
-            </div>
-            <div class="row mt-4">
-              <label>E-mail</label>
-              <input type="text" class="form-control" formControlName="email" placeholder="email">
-              <app-vmessage *ngIf="usuarioForm.get('email')?.errors?.minlength ||
+                              [text]="'O nome deve possuir mais que 3 caracteres'"></app-vmessage>
+              </div>
+              <div class="row mt-4">
+                <label>E-mail</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="email">
+                <app-vmessage *ngIf="usuarioForm.get('email')?.errors?.minlength ||
                usuarioForm.get('email')?.errors?.maxlength ||
                 usuarioForm.get('email')?.errors?.required"
-                            [text]="'O cpf deve possuir mais que 3 caracteres'"></app-vmessage>
-            </div>
-            <div class="row mt-4">
-              <label>Senha</label>
-              <input type="text" class="form-control" formControlName="senha" placeholder="senha">
-              <app-vmessage *ngIf="usuarioForm.get('senha')?.errors?.minlength ||
+                              [text]="'O cpf deve possuir mais que 3 caracteres'"></app-vmessage>
+              </div>
+              <div class="row mt-4">
+                <label>Senha</label>
+                <input type="text" class="form-control" formControlName="senha" placeholder="senha">
+                <app-vmessage *ngIf="usuarioForm.get('senha')?.errors?.minlength ||
               usuarioForm.get('senha')?.errors?.maxlength ||
               usuarioForm.get('senha')?.errors?.required"
-                            [text]="'A senha deve ter mais de 3 caracteres'">
-              </app-vmessage>
-            </div>
-            <div>
-              <button [disabled]="usuarioForm.invalid" type="submit" class="btn btn-outline-primary btn-block">
-                Salvar
-              </button>
+                              [text]="'A senha deve ter mais de 3 caracteres'">
+                </app-vmessage>
+              </div>
+              <div style="margin-top: 10px">
+                <button [disabled]="usuarioForm.invalid" type="submit" class="btn btn-outline-primary btn-block">
+                  Salvar
+                </button>
+                <a href="/" style="margin-left: 5px" type="submit" class="btn btn-outline-warning btn-block button">Voltar</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="container">
-        <div class="card-title mt-3">
-          <h4>Quem somos nós?</h4>
+      <div class="col-4">
+        <div class="container">
+          <div class="card-title mt-3">
+            <h5>Quem somos nós?</h5>
+            <p><i class="fas fa-check text-primary"></i> Nós somos os ForBuilders e Resolvemos seus problemas.</p>
+            <p class="mt-4"><i class="fas fa-check text-primary"></i> Oferecemos alta segurança.</p>
+            <p><i class="fas fa-check text-primary"></i> Temos agendamento de livros.</p>
+            <p><i class="fas fa-arrow-right"></i>  <a href="https://www.amazon.com.br/Livros/b?ie=UTF8&node=6740748011">Compre o seu livro acessando este site.</a></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+
