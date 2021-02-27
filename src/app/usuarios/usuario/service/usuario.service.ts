@@ -20,7 +20,10 @@ export class UsuarioService {
   //cadastrando um usuario
   cadastrar(usuario: Usuario): Observable<void> {
     //se nao ele vai criar um novo usuario
-    console.log(usuario);
+    //acho que assim fica bonito, vou deixar
+   if (usuario.id) {
+     return this.http.put<void>(environment.api + '/usuario', usuario);
+   }
     return this.http.post<void>(environment.api + '/usuario', usuario);
   }
 

@@ -18,7 +18,7 @@ export class AnuncioFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private anuncioService: AnuncioService,
               private router: Router,
-              private activedRouter: ActivatedRoute ) {
+              private activedRouter: ActivatedRoute) {
 
   }
 
@@ -29,7 +29,7 @@ export class AnuncioFormComponent implements OnInit {
       mensagem: ['', [Validators.minLength(3), Validators.maxLength(300), Validators.required]]
     });
     const id = this.activedRouter.snapshot.params.id;
-    if (id){
+    if (id) {
       this.anuncioService.pegaId(id).subscribe(anuncio => {
         this.anuncio = anuncio;
         this.anuncioForm.controls['url'].setValue(anuncio.urlImagem);
@@ -39,7 +39,8 @@ export class AnuncioFormComponent implements OnInit {
       });
     }
   }
-  salvarAnuncio(): void{
+
+  salvarAnuncio(): void {
     this.anuncio.titulo = this.anuncioForm.get('titulo')?.value;
     this.anuncio.mensagem = this.anuncioForm.get('mensagem')?.value;
     this.anuncio.urlImagem = this.anuncioForm.get('url')?.value;
@@ -47,7 +48,8 @@ export class AnuncioFormComponent implements OnInit {
       this.router.navigate(['list/a']);
     });
   }
-  deletarAnuncio(): void{
+
+  deletarAnuncio(): void {
     this.anuncioService.excluir(this.anuncio.id).subscribe();
   }
 }

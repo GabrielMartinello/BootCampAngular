@@ -1,1 +1,8 @@
-<p class="text-center text-muted" *ngIf="!usuarios">usuarios works!</p>
+<p class="text-center text-muted" *ngIf="!usuarios">Não possui Usuarios!</p>
+<ol>
+  <li class="row" *ngFor="let cols of rows">
+    <div *ngFor="let usuario of cols" class="col-3">
+      <app-usuario [usuario]="usuario"></app-usuario>
+    </div>
+  </li>
+</ol>

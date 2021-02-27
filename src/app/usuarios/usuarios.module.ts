@@ -1,26 +1,20 @@
 import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AnuncioFormModule} from './anuncio-form/anuncio-form.module';
-import {CommonModule} from '@angular/common';
-import {AnuncioListModule} from 'src/app/anuncios/anuncio-list/anuncio-list.module';
 import {VmessageModule} from '../vmessage/vmessage.module';
+import {UsuarioModule} from './model/usuario.module';
 import {NavbarModule} from '../navbar/navbar.module';
+import {UsuarioListModule} from './usuario-list/usuario-list.module';
+import {UsuarioFormModule} from './usuario/usuario-form.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    AnuncioFormModule,
-    AnuncioListModule,
-    RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
     VmessageModule,
+    UsuarioListModule,
+    UsuarioFormModule,
     NavbarModule
   ]
 })
-
-export class AnunciosModule {
-
-}
+export class UsuariosModule {}

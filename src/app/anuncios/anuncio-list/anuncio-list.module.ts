@@ -3,9 +3,9 @@ import {CommonModule} from '@angular/common';
 
 import {AnuncioListComponent} from './anuncio-list.component';
 import {FilterByTitlePipe} from './filter-by-title.pipe';
-import {RouterModule} from '@angular/router';
-import {AnuncioModule} from '../anuncio/anuncio.module';
 import {AnunciosComponent} from './anuncios/anuncios.component';
+import {AnuncioModule} from '../anuncio/anuncio.module';
+import {NavbarModule} from '../../navbar/navbar.module';
 
 @NgModule({
     declarations: [
@@ -13,11 +13,10 @@ import {AnunciosComponent} from './anuncios/anuncios.component';
       AnunciosComponent,
       FilterByTitlePipe
     ],
-    imports: [
-      CommonModule,
-      RouterModule,
-      AnuncioModule
-    ],
+  imports: [
+    CommonModule,
+    AnuncioModule
+  ],
   exports: [AnuncioListComponent]
 })
 

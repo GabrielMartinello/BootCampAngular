@@ -6,9 +6,7 @@ import {NavbarModule} from '../navbar/navbar.module';
 //imports e declarations são só para modules
 @NgModule({
   declarations: [ HomeComponent ],
-  imports: [CommonModule, AnuncioListModule, NavbarModule],
-  exports: [ HomeComponent ]
-
+  imports: [CommonModule, AnuncioListModule, NavbarModule]
 })
 export class HomeModule {
 

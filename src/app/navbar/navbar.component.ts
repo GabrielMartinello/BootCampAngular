@@ -1,21 +1,30 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Subject} from 'rxjs';
+import {ActivatedRoute, Router, Routes} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+  constructor( public router: Router) { }
+  @Input() filter = '';
   @Output() filterOutput = new EventEmitter<string>();
-  filter = '';
-  filterSub: any;
-  constructor() { }
+
+  filterSub = new Subject<string>();
 
   ngOnInit(): void {
+    this.filterSub.subscribe(e => {
+      this.filterOutput.emit(e);
+    });
+  }
+  onKey($event: KeyboardEvent): any {
+  return ($event.target as HTMLInputElement).value;
+  }
 
+  ngOnDestroy(): void {
+    this.filterSub.unsubscribe();
   }
-  onKey($event: KeyboardEvent): void {
-    this.filter = ($event.target as HTMLInputElement).value;
-    this.filterOutput.emit( this.filter );
-  }
+
 }

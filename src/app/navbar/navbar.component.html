@@ -13,12 +13,12 @@
         <a class="nav-link" href="u/add">Cadastrar Usuário</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="u/list">Listar Usuário</a>
+        <a class="nav-link" href="u/list"> 1'Listar Usuário</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-            <input [value]="filter" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                   (keyup)=" onKey($event)">
+            <input  *ngIf="router.url.toLowerCase() == '/home' || router.url.toLowerCase() == '/u/list'" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                   (keyup)=" filterSub.next(onKey($event))">
     </form>
   </div>
 </nav>
